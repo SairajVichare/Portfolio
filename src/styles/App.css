@@ -152,6 +152,8 @@ body {
   z-index: 1000;
   box-shadow: var(--shadow-light);
   transition: var(--transition-medium);
+  left: 0;
+  top: 0;
 }
 
 .sidebar-header {
@@ -1794,6 +1796,8 @@ section {
     width: 280px;
     position: fixed;
     z-index: 1000;
+    left: 0;
+    top: 0;
   }
   
   .sidebar.open {
