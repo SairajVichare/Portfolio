@@ -12,28 +12,7 @@ const About = () => {
     { number: '100%', label: 'Dedication', icon: 'fas fa-heart' }
   ];
 
-  const values = [
-    {
-      icon: 'fas fa-rocket',
-      title: 'Innovation First',
-      description: 'I believe in pushing boundaries and exploring new technologies to create cutting-edge solutions that make a real impact.'
-    },
-    {
-      icon: 'fas fa-users',
-      title: 'Collaborative Spirit',
-      description: 'Great software is built by great teams. I thrive in collaborative environments and believe in sharing knowledge.'
-    },
-    {
-      icon: 'fas fa-target',
-      title: 'Quality Focused',
-      description: 'Every line of code matters. I am committed to writing clean, maintainable, and efficient code that stands the test of time.'
-    },
-    {
-      icon: 'fas fa-chart-line',
-      title: 'Growth Mindset',
-      description: 'Technology evolves rapidly, and so do I. Continuous learning and adaptation are at the core of my development philosophy.'
-    }
-  ];
+
 
   const containerVariants = {
     hidden: { opacity: 0 },

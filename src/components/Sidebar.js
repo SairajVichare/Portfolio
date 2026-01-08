@@ -38,7 +38,7 @@ const Sidebar = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [menuItems]);
 
   return (
     <>
