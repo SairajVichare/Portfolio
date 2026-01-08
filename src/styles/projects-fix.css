@@ -5,3 +5,17 @@
 .project-image:hover img {
   transform: scale(1.05);
 }
+
+/* Mobile: Always show project links */
+@media (max-width: 768px) {
+  .project-overlay {
+    opacity: 1 !important;
+    background: rgba(59, 130, 246, 0.8);
+  }
+  
+  .project-link {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+}
