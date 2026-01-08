@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #eaf4ff, #f6fbff);
+      color: #2c2c2c;
+      line-height: 1.6;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(12px);
+      padding: 18px 0;
+      box-shadow: 0 8px 20px rgba(79,172,254,0.25);
+      z-index: 10;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #0077cc;
+      font-weight: 600;
+    }
+
+    /* HERO – GLASS STYLE */
+    .hero {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #5fb3ff, #1b6fdc);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .hero-glass {
+      position: relative;
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(20px);
+      border-radius: 28px;
+      padding: 60px 45px;
+      text-align: center;
+      max-width: 520px;
+      color: white;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+      overflow: hidden;
+    }
+
+    .glow-ring {
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.25);
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: rotate 14s linear infinite;
+    }
+
+    .glow-ring.delay {
+      width: 320px;
+      height: 320px;
+      animation-duration: 22s;
+      opacity: 0.6;
+    }
+
+    @keyframes rotate {
+      from { transform: translateX(-50%) rotate(0deg); }
+      to { transform: translateX(-50%) rotate(360deg); }
+    }
+
+    .hero-avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(255,255,255,0.85);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+      margin-bottom: 25px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-glass h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+    }
+
+    .hero-glass h3 {
+      font-size: 1.3rem;
+      margin: 12px 0;
+      opacity: 0.9;
+    }
+
+    .hero-glass p {
+      margin: 22px 0 35px;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      opacity: 0.9;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .hero-btn {
+      padding: 12px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .hero-btn.primary {
+      background: white;
+      color: #1b6fdc;
+    }
+
+    .hero-btn.secondary {
+      border: 2px solid white;
+      color: white;
+    }
+
+    .hero-btn:hover {
+      transform: translateY(-4px);
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #0077cc;
+      font-size: 2.6rem;
+      margin-bottom: 40px;
+    }
+
+    /* CARDS */
+    .skills-container,
+    .projects-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .skill-card,
+    .project-card {
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(12px);
+      width: 260px;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 15px 35px rgba(79,172,254,0.25);
+      transition: transform 0.3s ease;
+    }
+
+    .skill-card:hover,
+    .project-card:hover {
+      transform: translateY(-10px) scale(1.02);
+    }
+
+    .project-card a {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 22px;
+      background: linear-gradient(135deg,#4facfe,#00c6ff);
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+    }
+
+    /* CONTACT */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 320px;
+      padding: 14px;
+      border-radius: 12px;
+      border: none;
+      box-shadow: 0 5px 15px rgba(79,172,254,0.2);
+    }
+
+    .contact-form button {
+      padding: 14px 40px;
+      background: linear-gradient(135deg,#4facfe,#00c6ff);
+      border: none;
+      border-radius: 30px;
+      color: white;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    /* SCROLL ANIMATION */
+    .animate {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+
+    .animate.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .hero-glass {
+        padding: 45px 30px;
+      }
+
+      .hero-glass h1 {
+        font-size: 2.3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero" class="hero animate">
+    <div class="hero-glass">
+      <div class="glow-ring"></div>
+      <div class="glow-ring delay"></div>
+
+      <img src="WhatsApp Image 2025-01-22 at 11.49.54 PM.jpeg" class="hero-avatar" alt="Profile">
+
+      <h1>John Doe</h1>
+      <h3>Java Full Stack & MERN Developer</h3>
+
+      <p>
+        I build modern, scalable web applications with clean architecture,
+        smooth user experience, and performance in mind.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#projects" class="hero-btn primary">Projects</a>
+        <a href="#contact" class="hero-btn secondary">Contact</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="animate">
+    <h2>Skills</h2>
+    <div class="skills-container">
+      <div class="skill-card animate"><h3>Java</h3><span>★★★★★</span></div>
+      <div class="skill-card animate"><h3>JavaScript</h3><span>★★★★☆</span></div>
+      <div class="skill-card animate"><h3>HTML & CSS</h3><span>★★★★☆</span></div>
+      <div class="skill-card animate"><h3>SQL</h3><span>★★★☆☆</span></div>
+      <div class="skill-card animate"><h3>Python</h3><span>★★★☆☆</span></div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="animate">
+    <h2>Featured Projects</h2>
+    <div class="projects-container">
+      <div class="project-card animate">
+        <h3>Project One</h3>
+        <p>Full-stack application with authentication and responsive UI.</p>
+        <a href="#">View Project</a>
+      </div>
+      <div class="project-card animate">
+        <h3>Project Two</h3>
+        <p>REST API based web app with database integration.</p>
+        <a href="#">View Project</a>
+      </div>
+      <div class="project-card animate">
+        <h3>Project Three</h3>
+        <p>Scalable backend service with clean architecture.</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="animate">
+    <h2>Contact Me</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- SCRIPT -->
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll(".animate").forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
